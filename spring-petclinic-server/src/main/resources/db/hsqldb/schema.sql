@@ -67,20 +67,20 @@ CREATE TABLE visits (
 ALTER TABLE visits ADD CONSTRAINT fk_visits_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
 CREATE INDEX visits_pet_id ON visits (pet_id);
 
--- CREATE TABLE request_visits (
---   id          INTEGER IDENTITY PRIMARY KEY,
---   owner_id    INTEGER NOT NULL,
---   pet_id      INTEGER NOT NULL,
---   vet_id      INTEGER NOT NULL,
---   visit_date  DATE,
---   state		  INTEGER NOT NULL
--- );
--- ALTER TABLE request_visits ADD CONSTRAINT fk_request_visits_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
--- ALTER TABLE request_visits ADD CONSTRAINT fk_request_visits_owners FOREIGN KEY (owner_id) REFERENCES owners (id);
--- ALTER TABLE request_visits ADD CONSTRAINT fk_request_visits_vets FOREIGN KEY (vet_id) REFERENCES vets (id);
--- CREATE INDEX request_visits_pet_id ON request_visits (pet_id);
--- CREATE INDEX request_visits_owner_id ON request_visits (owner_id);
--- CREATE INDEX request_visits_vet_id ON request_visits (vet_id);
+ CREATE TABLE request_visits (
+  id          INTEGER IDENTITY PRIMARY KEY,
+  owner_id    INTEGER NOT NULL,
+  pet_id      INTEGER NOT NULL,
+  vet_id      INTEGER NOT NULL,
+  visit_date  DATE,
+  state		  INTEGER NOT NULL
+);
+ ALTER TABLE request_visits ADD CONSTRAINT fk_request_visits_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
+ ALTER TABLE request_visits ADD CONSTRAINT fk_request_visits_owners FOREIGN KEY (owner_id) REFERENCES owners (id);
+ ALTER TABLE request_visits ADD CONSTRAINT fk_request_visits_vets FOREIGN KEY (vet_id) REFERENCES vets (id);
+ CREATE INDEX request_visits_pet_id ON request_visits (pet_id);
+ CREATE INDEX request_visits_owner_id ON request_visits (owner_id);
+ CREATE INDEX request_visits_vet_id ON request_visits (vet_id);
 
 
 

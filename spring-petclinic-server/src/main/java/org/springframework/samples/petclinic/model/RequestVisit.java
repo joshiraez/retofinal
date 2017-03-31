@@ -19,6 +19,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -36,8 +37,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //TODO Crea una entidad mapeada en la tabla "request_visits"
 //TODO
+@Entity
+@Table(name = "request_visits")
 public class RequestVisit extends BaseEntity {
 
+	
+	//El id esta al heredar de BaseEntity
+	
     /**
      * Holds value of property date.
      */
@@ -50,7 +56,13 @@ public class RequestVisit extends BaseEntity {
      * Holds value of property pet.
      */
     // TODO Relación Muchos a uno con la columna "pet_id"
-    // TODO
+    // TODO 
+    /*Ponemos Fetch a Eager por que al ser una intermedia de una N:M:K camuflada, nos convendrá traernos todo. 
+    * y el join Column para traernos la FK y asegurarnos integridad referencial de sus registros.
+    * NOTA: En la hoja pone claramente una linea de código, pero por ejemplo el Entity + Table del principio es imposible en solo una linea.
+    * He supuesto que no era literal. */
+    @ManyToOne (fetch= FetchType.EAGER)
+    @JoinColumn (name="pet_id")
 	private Pet pet;
     
     /**
@@ -58,6 +70,8 @@ public class RequestVisit extends BaseEntity {
      */
 	// TODO Relación Muchos a uno con la columna "vet_id"
     // TODO
+    @ManyToOne (fetch= FetchType.EAGER)
+    @JoinColumn (name="vet_id")
     private Vet vet;
     
     /**
@@ -65,8 +79,11 @@ public class RequestVisit extends BaseEntity {
      */
     // TODO Relación Muchos a uno con la columna "owner_id"
     // TODO
+    @ManyToOne (fetch= FetchType.EAGER)
+    @JoinColumn (name="owner_id")
     private Owner owner;
     
+    //Deberiamos validar que state sea 0 o 1, pero no parece que podamos escribir aqui.
     @Column(name = "state")
     private Integer state;
 

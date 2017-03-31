@@ -68,8 +68,8 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets;
     
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-//	private Set<RequestVisit> requestVisits;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+	private Set<RequestVisit> requestVisits;
 
 
     public String getAddress() {

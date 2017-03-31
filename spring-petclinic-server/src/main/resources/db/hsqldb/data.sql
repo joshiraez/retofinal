@@ -52,7 +52,9 @@ INSERT INTO visits VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 
--- INSERT INTO request_visits VALUES (1, 1, 1, 1, '2017-05-04', 0);
--- INSERT INTO request_visits VALUES (2, 1, 1, 1, '2017-04-04', 0);
--- INSERT INTO request_visits VALUES (3, 1, 1, 1, '2017-03-03', 0);
--- INSERT INTO request_visits VALUES (4, 1, 1, 1, '2017-02-02', 0);
+DELETE FROM request_visits;
+
+INSERT INTO request_visits VALUES (1, 1, 1, 1, '2017-05-04', 0);
+INSERT INTO request_visits VALUES (2, 1, 1, 1, '2017-04-04', 0);
+INSERT INTO request_visits VALUES (3, 1, 1, 1, '2017-03-03', 0);
+INSERT INTO request_visits VALUES (4, 1, 1, 1, '2017-02-02', 0);
